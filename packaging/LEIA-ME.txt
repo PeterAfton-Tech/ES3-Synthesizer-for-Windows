@@ -1,0 +1,5 @@
+ES3 (versao em desenvolvimento)
+1) Clique com o botao direito em "Instalar_ES3.bat" e escolha "Executar" (aceite o pedido de administrador).
+2) No FL Studio: Options > Manage plugins > Find installed plugins. Procure "ES3" em Instruments.
+3) Para usar sem o FL Studio, de dois cliques em ES3.exe.
+Se o Windows mostrar "O Windows protegeu seu PC": clique em "Mais informacoes" > "Executar assim mesmo" (o programa ainda nao e assinado digitalmente).
