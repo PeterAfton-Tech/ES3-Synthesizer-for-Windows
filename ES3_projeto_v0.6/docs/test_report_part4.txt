@@ -1,0 +1,74 @@
+[pitch]
+  nota 69 -> medido 440.0000 Hz (esperado 440.0000)
+  nota 45 -> medido 110.0000 Hz (esperado 110.0000)
+  nota 93 -> medido 1760.0000 Hz (esperado 1760.0000)
+  nota 69 -> medido 880.0000 Hz (esperado 880.0000)
+  nota 69 -> medido 466.1638 Hz (esperado 466.1638)
+  nota 69 -> medido 466.1638 Hz (esperado 466.1638)
+  nota 69 -> medido 493.8833 Hz (esperado 493.8833)
+[mix triangulo]
+  (0.000,0.000) -> 1.000 0.000 0.000
+  (1.000,0.500) -> 0.000 1.000 0.000
+  (0.000,1.000) -> 0.000 0.000 1.000
+  (0.333,0.500) -> 0.333 0.333 0.333
+  (0.500,0.250) -> 0.500 0.500 0.000
+  (0.000,0.500) -> 0.500 0.000 0.500
+  (0.500,0.750) -> 0.000 0.500 0.500
+[envelope/release]
+  pico com nota sustentada: 0.250
+[polifonia/roubo de voz]
+[sustain pedal]
+[mono/legato]
+  64 -> 329.628 Hz, volta a 60 -> 261.626 Hz
+[aliasing da serra: PolyBLEP completo / parcial / ingênuo]
+  energia fora dos harmônicos: PolyBLEP 0.00423 | padrão (aliasing=0.50) 0.03982 | ingênua 0.10983
+[sync rígido]
+  erro de periodicidade (100 amostras): sync 0.0000 | sem sync 1.7673
+[modulação em anel]
+  potência em f2-f1 (219.3 Hz): 4.25e+05 | em f1 (440 Hz): 0.858
+[FM do Osc 1 por Osc 2]
+  potência em 880 Hz: FM=0 2.97e-09 | FM=0.5 1.78e+04
+[largura de pulso]
+  fração positiva: pw=0 -> 0.491 | pw=1 -> 0.021
+[cor do ruído]
+  razão de energia da derivada: branco 1.989 | cor=1 0.060
+[osc start]
+[envelope: ataque e release mínimos (evidência das gravações)]
+  44100 Hz: sobe a 1.0 em 3 amostras (68 us); sustain 0.80 cai a 0 em 3 amostras (68 us)
+  48000 Hz: sobe a 1.0 em 3 amostras (62 us); sustain 0.80 cai a 0 em 3 amostras (62 us)
+  96000 Hz: sobe a 1.0 em 5 amostras (52 us); sustain 0.80 cai a 0 em 6 amostras (62 us)
+  attack=10 ms: sobe em 480 amostras
+[ruído gaussiano]
+  RMS 0.300 | curtose 2.959 (referência medida: 3.01)
+[filtro 1: modos]
+  Lo: 4k -24.5 dB (esp. -24) | fc -3.0 dB (esp. -3) ; Hi: 250 Hz -24.1 dB (esp. -24) | 8k -0.0 dB (esp. 0)
+  BP fc -0.0 dB (esp. 0) ; BR fc -155.1 dB (< -20) | 100 Hz -0.1 dB (0) ; Peak res=1: fc 12.0 dB (esp. +12) | 100 Hz 0.0 dB (0)
+[filtro 2: inclinações e Fat]
+  12 dB  queda entre 2 kHz e 4 kHz: 12.3 dB/oitava (esp. 12)
+  18 dB  queda entre 2 kHz e 4 kHz: 18.4 dB/oitava (esp. 18)
+  24 dB  queda entre 2 kHz e 4 kHz: 24.5 dB/oitava (esp. 24)
+  Fat    queda entre 2 kHz e 4 kHz: 24.5 dB/oitava (esp. 24)
+  graves a res=0.5: 24 dB -9.5 dB (perde graves, esp. ~-9.5) | Fat 0.0 dB (esp. ~0)
+[roteamento e blend]
+  só F1 -24.5 dB | só F2 -49.9 dB
+  paralelo: blend -1 -> -24.5 dB | blend +1 -> -49.9 dB
+  série   : blend -1 -> -24.5 dB | blend +1 -> -49.9 dB
+  paralelo blend 0 (50/50): -30.9 dB (esp. ~-30.5)
+[ressonância e auto-oscilação]
+  F1 Lo no corte: res=0 -3.0 dB | res=1 34.0 dB
+  24 dB res=1 após impulso: RMS 0.2 s 0.0163 | 0.8 s 0.0163 | frequência 1000.0 Hz
+[estabilidade dos filtros]
+  pico máximo com cutoff/ressonância/drive aleatórios: 4.3
+[modulação de cutoff: key e ENV2]
+  key +1 oitava 2000.0 | key -1 oitava 500.0 | ENV2 0.5 x 8 oit 16000.0 | sem mod 1000.0
+[filtro no motor: corte e ENV2]
+  brilho (energia da derivada): aberto 0.0472 | Lo 500 Hz 0.00178
+  ENV2 -> cutoff: brilho inicial 0.0189 | brilho depois do decay 0.00118
+[LFO]
+  seno 5 Hz em 10 s: 49 ciclos, pico 1.000
+  sample&hold 10 Hz: 10 trocas em 1 s
+  fade-in 0.5 s: pico em 50 ms 0.04 | após 0.6 s 1.00
+[estresse aleatório]
+  pico máximo observado: 1.391
+
+501 verificações, 0 falhas
