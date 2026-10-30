@@ -14,6 +14,18 @@ public:
     {
         const juce::String s (slotNum);
 
+        static const juce::StringArray sourceNames { "Off", "ENV1", "ENV2", "ENV3", "LFO1", "LFO2",
+                                                     "Velocity", "Key", "ModWheel", "Aftertouch", "PitchBend", "Random" };
+        static const juce::StringArray targetNames { "Off", "Pitch", "Osc1 Pitch", "Osc2 Pitch", "Osc3 Pitch",
+                                                     "Cutoff 1", "Cutoff 2", "Cutoff 1+2",
+                                                     "Reso 1", "Reso 2", "PW1", "PW2", "PW3",
+                                                     "FM", "Volume", "Pan", "Mix X", "Mix Y",
+                                                     "LFO1 Rate", "LFO2 Rate", "Drive" };
+
+        targetBox.addItemList (targetNames, 1);
+        viaBox.addItemList (sourceNames, 1);
+        sourceBox.addItemList (sourceNames, 1);
+
         // Target ComboBox
         addAndMakeVisible (targetBox);
         targetAttach = std::make_unique<juce::AudioProcessorValueTreeState::ComboBoxAttachment> (
@@ -52,7 +64,7 @@ public:
         g.drawVerticalLine ((int) bounds.getRight() - 1, bounds.getY() + 2.0f, bounds.getBottom() - 2.0f);
 
         // Header do slot (número)
-        g.setFont (juce::FontOptions (9.0f).withStyle ("Bold"));
+        g.setFont (juce::Font (juce::FontOptions (9.0f).withStyle ("Bold")));
         g.setColour (Palette::cyanDim);
         g.drawText (juce::String (slotNum), 2, 2, (int) bounds.getWidth() - 4, 10, juce::Justification::centred);
     }

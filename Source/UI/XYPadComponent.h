@@ -40,7 +40,7 @@ public:
         g.drawVerticalLine ((int) bounds.getCentreX(), bounds.getY(), bounds.getBottom());
 
         // Eixos x e y labels
-        g.setFont (juce::Font (10.0f, juce::Font::plain));
+        g.setFont (juce::Font (juce::FontOptions (10.0f)));
         g.setColour (Palette::cyanDim);
         g.drawText ("x", (int) bounds.getRight() - 14, (int) bounds.getBottom() - 14, 10, 10, juce::Justification::centred);
         g.drawText ("y", (int) bounds.getX() + 4, (int) bounds.getY() + 4, 10, 10, juce::Justification::centred);

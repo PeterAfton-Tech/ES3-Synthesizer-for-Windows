@@ -212,7 +212,7 @@ public:
     void positionComboBoxText (juce::ComboBox& box, juce::Label& label) override
     {
         label.setBounds (2, 1, box.getWidth() - 16, box.getHeight() - 2);
-        label.setFont (juce::FontOptions (11.0f).withStyle ("Bold"));
+        label.setFont (juce::Font (juce::FontOptions (11.0f).withStyle ("Bold")));
         label.setColour (juce::Label::textColourId, Palette::cyan);
         label.setJustificationType (juce::Justification::centredLeft);
     }
@@ -248,7 +248,7 @@ public:
 
         // Texto do botão
         g.setColour (button.getToggleState() ? Palette::textLight : Palette::textMuted);
-        g.setFont (juce::FontOptions (11.0f));
+        g.setFont (juce::Font (juce::FontOptions (11.0f)));
         g.drawText (button.getButtonText(), (int) (ledX + r * 2.0f + 6.0f), 0,
                     button.getWidth() - (int) (ledX + r * 2.0f + 8.0f), button.getHeight(),
                     juce::Justification::centredLeft);

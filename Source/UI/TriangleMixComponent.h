@@ -57,7 +57,7 @@ public:
         g.strokePath (trianglePath, juce::PathStrokeType (1.5f));
 
         // 4. Indicadores dos osciladores nos vértices
-        g.setFont (juce::Font (10.0f, juce::Font::bold));
+        g.setFont (juce::Font (juce::FontOptions (10.0f).withStyle ("Bold")));
         g.setColour (Palette::cyan);
         g.drawText ("1", (int) v1.x + 3, (int) v1.y + 1, 14, 14, juce::Justification::centred);
         g.drawText ("2", (int) v2.x - 14, (int) v2.y - 7, 14, 14, juce::Justification::centred);

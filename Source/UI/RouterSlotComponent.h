@@ -64,7 +64,7 @@ public:
         g.drawVerticalLine ((int) bounds.getRight() - 1, bounds.getY() + 2.0f, bounds.getBottom() - 2.0f);
 
         // Header do slot (número)
-        g.setFont (juce::Font (9.0f, juce::Font::bold));
+        g.setFont (juce::Font (juce::FontOptions (9.0f).withStyle ("Bold")));
         g.setColour (Palette::cyanDim);
         g.drawText (juce::String (slotNum), 2, 2, (int) bounds.getWidth() - 4, 10, juce::Justification::centred);
     }

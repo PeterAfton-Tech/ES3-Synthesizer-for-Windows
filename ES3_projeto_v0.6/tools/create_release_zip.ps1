@@ -3,8 +3,12 @@ param(
 )
 
 $src = "c:\Users\USUARIO\Desktop\ES3 Synth"
-$zipDest = "$src\atualizações\ES3_projeto_$Version.zip"
-$staging = "$src\atualizações\staging_$Version"
+$atualizacoesDir = Get-ChildItem -Path $src -Directory | Where-Object { $_.Name -like "atualiza*" } | Select-Object -First 1
+if (-not $atualizacoesDir) {
+    $atualizacoesDir = New-Item -ItemType Directory -Path (Join-Path $src "atualizações") -Force
+}
+$zipDest = Join-Path $atualizacoesDir.FullName "ES3_projeto_$Version.zip"
+$staging = Join-Path $atualizacoesDir.FullName "staging_$Version"
 
 if (Test-Path $staging) {
     Remove-Item -Recurse -Force $staging

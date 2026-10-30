@@ -105,7 +105,7 @@ inline juce::AudioProcessorValueTreeState::ParameterLayout createLayout()
     p.push_back (std::make_unique<F> (pid (ID::ampRelease), "Amp Release", NormalisableRange<float> (0.f, 10.f, 0.f, 0.3f), 0.2f));
 
     // Aliasing (configuração avançada — não é controle principal)
-    p.push_back (std::make_unique<F> (pid (ID::aliasing), "Aliasing", NormalisableRange<float> (0.f, 1.f), es3::kDefaultAliasing));
+    p.push_back (std::make_unique<F> (pid (ID::aliasing), "Aliasing", NormalisableRange<float> (0.f, 1.f), 0.5f));
 
     // LFO 1 (polifônico)
     p.push_back (std::make_unique<C> (pid (ID::lfo1Wave), "LFO 1 Wave",
