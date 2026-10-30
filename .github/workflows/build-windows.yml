@@ -1,0 +1,47 @@
+name: Compilar ES3 (Windows)
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Reaproveitar download do JUCE
+        uses: actions/cache@v4
+        with:
+          path: build/_deps
+          key: juce-${{ hashFiles('CMakeLists.txt') }}
+
+      - name: Configurar (CMake)
+        run: cmake -B build -A x64 -DCMAKE_BUILD_TYPE=Release
+
+      - name: Compilar
+        run: cmake --build build --config Release --parallel
+
+      - name: Rodar testes do motor de áudio
+        run: ctest --test-dir build -C Release --output-on-failure
+
+      - name: Montar pacote de instalação
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force dist/ES3 | Out-Null
+          $vst = Get-ChildItem -Path build -Recurse -Directory -Filter "ES3.vst3" | Select-Object -First 1
+          $exe = Get-ChildItem -Path build -Recurse -File -Filter "ES3.exe" | Where-Object { $_.FullName -like "*Standalone*" } | Select-Object -First 1
+          if (-not $vst) { throw "ES3.vst3 não foi gerado" }
+          if (-not $exe) { throw "ES3.exe (Standalone) não foi gerado" }
+          Copy-Item -Recurse $vst.FullName dist/ES3/ES3.vst3
+          Copy-Item $exe.FullName dist/ES3/ES3.exe
+          Copy-Item packaging/Instalar_ES3.bat dist/ES3/
+          Copy-Item packaging/LEIA-ME.txt dist/ES3/
+          Copy-Item docs/test_report_part4.txt dist/ES3/ -ErrorAction SilentlyContinue
+          Get-ChildItem -Recurse dist | Select-Object FullName, Length
+
+      - name: Enviar pacote
+        uses: actions/upload-artifact@v4
+        with:
+          name: ES3-Windows-x64
+          path: dist/ES3
