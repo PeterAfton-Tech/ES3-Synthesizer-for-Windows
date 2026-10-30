@@ -16,7 +16,7 @@ ES3Editor::ES3Editor (ES3Processor& p)
 
     // --- 1. BARRA SUPERIOR (HEADER & PRESETS) ---
     titleLabel.setText ("ES3", juce::dontSendNotification);
-    titleLabel.setFont (juce::FontOptions (18.0f).withStyle ("Bold"));
+    titleLabel.setFont (juce::Font (18.0f, juce::Font::bold));
     titleLabel.setColour (juce::Label::textColourId, Palette::textLight);
     addAndMakeVisible (titleLabel);
 
@@ -268,7 +268,7 @@ void ES3Editor::paint (juce::Graphics& g)
                    (filterRadius - 8.0f) * 2.0f, (filterRadius - 8.0f) * 2.0f);
 
     // Texto de seções com fonte técnica limpa
-    g.setFont (juce::FontOptions (10.0f).withStyle ("Bold"));
+    g.setFont (juce::Font (10.0f, juce::Font::bold));
     g.setColour (Palette::textMuted);
 
     // Labels de seções

@@ -35,6 +35,7 @@ target_compile_definitions(ES3 PUBLIC
 target_link_libraries(ES3 PRIVATE
     juce::juce_audio_utils
     juce::juce_dsp
+    juce::juce_gui_extra
     PUBLIC juce::juce_recommended_config_flags juce::juce_recommended_warning_flags)
 
 # Testes do núcleo de DSP (sem JUCE)
